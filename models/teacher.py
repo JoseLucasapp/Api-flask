@@ -9,3 +9,9 @@ class Teacher(db.Model):
     def __init__(self, name, subject):
         self.name = name
         self.subject = subject
+
+    def to_dict(self, columns=[]):
+        if not columns:
+            return {"id": self.id, "name": self.name, "age": self.age}
+        else:
+            return {"col": getattr(self, col) for col in columns}
