@@ -12,6 +12,6 @@ class Teacher(db.Model):
 
     def to_dict(self, columns=[]):
         if not columns:
-            return {"id": self.id, "name": self.name, "age": self.age}
+            return {"id": self.id, "name": self.name, "subject": self.subject}
         else:
             return {"col": getattr(self, col) for col in columns}
