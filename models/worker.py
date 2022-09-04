@@ -9,3 +9,9 @@ class Worker(db.Model):
     def __init__(self, name, role):
         self.name = name
         self.role = role
+
+    def to_dict(self, columns=[]):
+        if not columns:
+            return {"id": self.id, "name": self.name, "role": self.role}
+        else:
+            return {"col": getattr(self, col) for col in columns}

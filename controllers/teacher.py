@@ -1,5 +1,3 @@
-from crypt import methods
-from turtle import st
 from flask import Blueprint, Response, request
 from models.teacher import db, Teacher
 import json

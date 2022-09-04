@@ -11,3 +11,9 @@ class Student(db.Model):
         self.name = name
         self.classRoom = classRoom
         self.age = age
+
+    def to_dict(self, columns=[]):
+        if not columns:
+            return {"id": self.id, "name": self.name, "classRoom": self.classRoom, "age": self.age}
+        else:
+            return {"col": getattr(self, col) for col in columns}
